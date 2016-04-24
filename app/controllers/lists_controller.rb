@@ -1,24 +1,32 @@
 class ListsController < ApplicationController
 	def index
-	end
-
-	def show
+		@lists = List.all
 	end
 
 	def new
 
+		@list = List.new
+	end
+	def create
+		@list = List.create(lists_param)
+		if @list.save
+			redirect_to lists_path
+		else
+			render("new")
+		end
 	end
 
 	def edit
+		@list = List.find(params[:id])
+		
 
 	end
 
-	def create 
+
+
+	private
+	def lists_param
+		params.require(:list).permit(:title)
 	end
 
-	def update
-	end
-
-	def destroy
-	end
 end

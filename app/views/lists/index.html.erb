@@ -1,0 +1,24 @@
+<h1>Welocme to todo</h1>
+<h2>Lists</h2>
+<div class="table-responsive">
+	<table class="table">
+	<thead>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<%@lists.each do |list|%>
+		<tr>
+			<td><%=list.id%></td>
+			<td><%=list.title%></td>
+			<td>
+				<%=link_to "Edit", edit_list_path(list)%> | <%= link_to "Delete", list_path(list), data:{:confirm=>"Are you sure?"}, :method => :delete%>
+			</td>
+		</tr>
+		<%end%>
+	</tbody>
+	
+		
+	</table>
+</div>
