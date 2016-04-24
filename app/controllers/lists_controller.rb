@@ -11,14 +11,14 @@ class ListsController < ApplicationController
 		@list = List.create(lists_param)
 		if @list.save
 			redirect_to lists_path
-		else
+ 		else
 			render("new")
 		end
 	end
 
 	def edit
 		@list = List.find(params[:id])
-		
+
 
 
 	end
